@@ -1,0 +1,53 @@
+Methods remaining inside the Functions class-
+
+For the three functions below, a class can be defined later in the project which loads, gets and process images-
+loadImages()
+getImages()
+processImageLine()
+
+setAlpha() No appropriate class found for this function inside the project as of now
+load() No appropriate class found for this function inside the project as of now
+processLine() A class can be defined later which implements different kinds of keys found in this function
+
+All the parsing function can be put inside a parse class which can be defined later in the project-
+parseBackground()
+parseMiner()
+parseObstacle()
+parseOre()
+parseSmith()
+parseVein()
+
+All the create functions can be placed inside a create class which can be defined later in the project-
+createAnimationAction()
+createActivityAction()
+createBlacksmith()
+createMinerFull()
+createMinerNotFull()
+createObstacle()
+createOre()
+createOreBlob()
+createQuake()
+createVein()
+
+Classes which can be moved into multiple classes-
+getCurrentImage()- Even though professor advised to break this function into two parts and move it into Entity and Background class, I chose to move this file into WorldModel class.
+The reason for moving this class into WorldModel class is because Model of the world should check if the Object passed into this function belongs to Entity or background, then accordingly
+would fetch the required current image.
+
+getBackgroundImage()- This method could have been placed into the Background class but again I chose WorldModel class to move this function into. The reason is same as that of
+getCurrentImage(), as I want Model of the World to get the background of the image based on the position of a point passed as a parameter.
+
+For two below function- WorldView class is a View class and should control want needs to be drawn in order to view anything-
+
+drawBackground()- As the name recommends, this function could have been place inside the Background class, but I placed it into WorldView class. WorldView class should have the control
+to draw the background and not the background class itself.
+
+drawEntities()- As the name recommends, this function could have been place inside the Entity class, but I placed it into WorldView class. WorldView class should have the control
+to draw the Entity and not the Entity class itself.
+
+nextImage()- This method could have been placed into Imagestore class but Entity class was more suitable because Entity should control the calling of the next image.
+
+scheduleAction()- This method could have been moved into Action class but was moved to EventScheduler as this class is responsible for scheduling all things even the actions.
+
+removeEntityAt()-This method could have been in the entity class but was placed in WorldModel class as the Model of the class should have the control at the position where entites are to
+be removed.

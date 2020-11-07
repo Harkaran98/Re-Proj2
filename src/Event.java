@@ -1,0 +1,37 @@
+import java.util.List;
+
+public final class Event
+{
+   private Action action;
+   private long time;
+   private Entity entity;
+
+   public Action getAction() {
+      return action;
+   }
+
+   public long getTime() {
+      return time;
+   }
+
+   public Event(Action action, long time, Entity entity)
+   {
+      this.action = action;
+      this.time = time;
+      this.entity = entity;
+   }
+
+
+   /**
+    * Asks the scheduler to removes the specified pending event.
+    */
+   public void removePendingEvent(EventScheduler es)
+   {
+      List<Event> pending = es.getPendingEvents().get(this.entity);
+
+      if (pending != null)
+      {
+         pending.remove(this);
+      }
+   }
+}
