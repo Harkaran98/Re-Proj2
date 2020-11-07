@@ -50,6 +50,7 @@ public final class Functions
    public static final int ORE_COL = 2;
    public static final int ORE_ROW = 3;
    public static final int ORE_ACTION_PERIOD = 4;
+   private static final String ORE_KEY = "ore";
 
    public static final String SMITH_KEY = "blacksmith";
    public static final int SMITH_NUM_PROPERTIES = 4;
@@ -269,7 +270,7 @@ public final class Functions
             return parseMiner(properties, world, imageStore);
          case OBSTACLE_KEY:
             return parseObstacle(properties, world, imageStore);
-            case Entity.ORE_KEY:
+            case ORE_KEY:
             return parseOre(properties, world, imageStore);
          case SMITH_KEY:
             return parseSmith(properties, world, imageStore);
@@ -339,7 +340,7 @@ public final class Functions
             Integer.parseInt(properties[ORE_ROW]));
          Entity entity = createOre(properties[ORE_ID],
             pt, Integer.parseInt(properties[ORE_ACTION_PERIOD]),
-                 imageStore.getImageList(Entity.ORE_KEY));
+                 imageStore.getImageList(ORE_KEY));
          world.tryAddEntity(entity);
       }
 
@@ -409,11 +410,11 @@ public final class Functions
 
 
 
+/*
 
 
 
-
-   public static Action createAnimationAction(Entity entity, int repeatCount)
+  public static Action createAnimationAction(Entity entity, int repeatCount)
    {
       return new Action(ActionKind.ANIMATION, entity, null, null, repeatCount);
    }
@@ -423,7 +424,6 @@ public final class Functions
    {
       return new Action(ActionKind.ACTIVITY, entity, world, imageStore, 0);
    }
-
    public static Entity createBlacksmith(String id, Point position,
       List<PImage> images)
    {
@@ -480,4 +480,57 @@ public final class Functions
       return new Entity(EntityKind.VEIN, id, position, images, 0, 0,
          actionPeriod, 0);
    }
+   */
+
+
+   public static Blacksmith createBlacksmith(String id,  Point position,List<PImage> images)
+   {
+      return new Blacksmith(id, position, images);
+   }
+
+   public static MinerFull createMinerFull(String id, int resourceLimit, Point position, int actionPeriod, int animationPeriod,
+                                           List<PImage> images)
+   {
+      return new MinerFull(id, position, images,
+              resourceLimit, actionPeriod, animationPeriod);
+   }
+
+
+   public static MinerNotFull createMinerNotFull(String id, int resourceLimit, Point position,int actionPeriod, int animationPeriod,
+                                                 List<PImage> images)
+   {
+      return new MinerNotFull(id, position, images, resourceLimit, actionPeriod, animationPeriod);
+   }
+
+
+   public static Obstacle createObstacle(String id, Point position, List<PImage> images)
+   {
+      return new Obstacle(id, position, images);
+   }
+
+
+   public static Ore createOre(String id, Point position,int actionPeriod,
+                               List<PImage> images)
+   {
+      return new Ore(id, position, images, actionPeriod);
+   }
+
+
+   public static Ore_Blob createOreBlob(String id, Point position, int actionPeriod, int animationPeriod, List<PImage> images)
+   {
+      return new Ore_Blob(id, position, images, actionPeriod, animationPeriod);
+   }
+
+   public static Quake createQuake(Point position, List<PImage> images)
+   {
+      return new Quake(QUAKE_ID, position, images, QUAKE_ACTION_PERIOD, QUAKE_ANIMATION_PERIOD);
+   }
+
+
+   public static Vein createVein(String id, Point position, int actionPeriod,
+                                 List<PImage> images)
+   {
+      return new Vein(id, position, images, actionPeriod);
+   }
+
 }

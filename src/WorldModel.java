@@ -38,7 +38,7 @@ public final class WorldModel
       }
    }
 
-   public Optional<Entity> findNearest(Point pos,
+ /*  public Optional<Entity> findNearest(Point pos,
                                               EntityKind kind)
    {
       List<Entity> ofType = new LinkedList<>();
@@ -52,7 +52,7 @@ public final class WorldModel
 
       return nearestEntity(ofType, pos);
    }
-
+*/
 
 
    /**
@@ -124,7 +124,7 @@ public final class WorldModel
 
          /* this moves the entity just outside of the grid for
             debugging purposes */
-         entity.setPosition(new Point(-1, -1));
+         entity.setposition(new Point(-1, -1));
          this.entities.remove(entity);
          setOccupancyCell(pos, null);
       }
