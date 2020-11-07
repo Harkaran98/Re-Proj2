@@ -93,7 +93,7 @@ public class MinerFull implements NewEntity, AnimEntity{
         scheduler.unscheduleAllEvents(this);
 
         world.addEntity(miner);
-        this.scheduleActions(scheduler, world, imageStore);
+        ((NewEntity)miner).scheduleActions(scheduler, world, imageStore);
     }
 
     /**
@@ -182,7 +182,7 @@ public class MinerFull implements NewEntity, AnimEntity{
 
     @Override
     public int getAnimationPeriod() {
-        return getAnimationPeriod();
+        return animationPeriod;
     }
 
 

@@ -487,7 +487,6 @@ public final class Functions
    {
       return new Blacksmith(id, position, images);
    }
-
    public static MinerFull createMinerFull(String id, int resourceLimit, Point position, int actionPeriod, int animationPeriod,
                                            List<PImage> images)
    {

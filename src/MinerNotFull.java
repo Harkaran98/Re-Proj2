@@ -91,7 +91,7 @@ public class MinerNotFull implements NewEntity, AnimEntity {
     {
         if (this.resourceCount >= this.resourceLimit)
         {
-            Entity miner = Functions.createMinerFull(this.id, this.resourceLimit,
+            MinerFull miner = Functions.createMinerFull(this.id, this.resourceLimit,
                     this.position, this.actionPeriod, this.animationPeriod,
                     this.images);
 
@@ -99,7 +99,7 @@ public class MinerNotFull implements NewEntity, AnimEntity {
             scheduler.unscheduleAllEvents(this);
 
             world.addEntity(miner);
-            this.scheduleActions(scheduler, world, imageStore);
+            miner.scheduleActions(scheduler, world, imageStore);
 
             return true;
         }
